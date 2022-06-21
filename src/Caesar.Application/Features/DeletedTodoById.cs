@@ -33,7 +33,7 @@ namespace Caesar.Application.Features
 
                 if (todo is not null)
                 {
-                    todo.IsDeleted = true;
+                    _caesarContext.Todos.Remove(todo);
 
                     _caesarContext.SaveChanges();
                 }

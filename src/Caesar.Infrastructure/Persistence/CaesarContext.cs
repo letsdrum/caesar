@@ -12,6 +12,14 @@ namespace Caesar.Infrastructure.Persistence
     {
         public DbSet<Todo> Todos { get; set; }
 
+        public DbSet<Email> Emails { get; set; }
+
+        public DbSet<EmailTemplate> EmailTemplates { get; set; }
+
+        public DbSet<Phone> Phones { get; set; }
+
+        public DbSet<Service> Services { get; set; }
+
         public CaesarContext(DbContextOptions options) 
             : base(options)
         {
@@ -43,6 +51,9 @@ namespace Caesar.Infrastructure.Persistence
                         break;
                     case EntityState.Modified:
                         entry.Entity.ModifiedAt = DateTime.UtcNow;
+                        break;
+                    case EntityState.Deleted:
+                        entry.Entity.IsDeleted = true;
                         break;
                 }
             }

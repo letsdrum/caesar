@@ -11,5 +11,7 @@ namespace Caesar.Domain.Common
         public string ModifiedBy { get; set; }
 
         public DateTime ModifiedAt { get; set; }
+
+        public bool IsDeleted { get; set; }
     }
 }
